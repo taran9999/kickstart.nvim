@@ -2,6 +2,11 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
+
+vim.diagnostic.config { update_in_insert = true }
+
+require('lspconfig').ocamllsp.setup {}
+
 return {
   'numToStr/Comment.nvim',
   opts = {},
