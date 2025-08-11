@@ -5,6 +5,16 @@
 
 vim.diagnostic.config { update_in_insert = true }
 
+vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
+  pattern = { '*' },
+  callback = function()
+    if vim.bo.modified then
+      vim.cmd 'write'
+    end
+  end,
+  nested = true,
+})
+
 require('lspconfig').ocamllsp.setup {}
 
 return {
